@@ -18,10 +18,13 @@ class Data_info:
         print("\nTotal de registros: ")
         print(total_rows)
         print("\nAgrupación de atributos: ")        
-        #print(df_table_info['Event'].value_counts())
-        df_value_counts=df_table_info['Time'].value_counts()
+        #Seleccionar el atributo a buscar, en este caso es 'Event'.
+        var_filter=input("Digita el atributo a analizar: ")
+        df_value_counts=df_table_info[var_filter].value_counts()
         print(df_value_counts)
-        Units_report.create_csv(df_value_counts)        
+        exp_option=input("Desea generar un reporte en formato csv?\nS/N\n")
+        if exp_option=='S':
+            Units_report.create_csv(df_value_counts) 
         #unique_elements, counts = np.unique(df_table_info, return_counts=True)
         #print("Unique elements: ",unique_elements)
         #print("Totales: ",counts)
