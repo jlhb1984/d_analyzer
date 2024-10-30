@@ -10,14 +10,14 @@ class Units_report:
         df_books.info()
         var_filter=input("\nDigita el atributo a buscar: ")
         #En la siguiente línea se puefe agregar los atributos a visualizar, si es uno, no modificar el código.
-        df_book_filter01=df_books[[var_filter]]#,'Unit ID','Unit Type','Phone Number','Sim Number','IMEI','Last Event Date']]
-        #df_book_filter01=df_books[[var_filter]]
+        #df_book_filter01=df_books[[var_filter]]#,'Unit ID','Unit Type','Phone Number','Sim Number','IMEI','Last Event Date']]
+        df_book_filter01=df_books[[var_filter,'Time']]
         print(df_book_filter01) 
         #print(df_book_filter01[var_filter].value_counts())
         #df_book_filter01.dropna(axis=0,inplace=True)        
         exp_option=input("Desea generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
-             Units_report.create_csv(df_book_filter01)
+             Units_report.create_csv(df_book_filter01,var_filter)
 
         look_option=input("¿Deseas buscar una unidad: S/N? ")
         if look_option=='S':
@@ -33,8 +33,8 @@ class Units_report:
                 look_option=input("Desea buscar una unidad:\nS/N\n")
         exp_option=input("Desea generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
-             Units_report.create_csv(filter_df)
+             Units_report.create_csv(filter_df,look_word)
 
-    def create_csv(filter_df):        
-        filter_df.to_csv('Searched_unit_report.csv')
+    def create_csv(filter_df,look_word):
+        filter_df.to_csv(look_word+'.csv')
         

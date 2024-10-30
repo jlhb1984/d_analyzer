@@ -17,13 +17,14 @@ class Date():
         df_filter=df[['Time']]
         #df_ymd_filter=df_ymd[['Time']]        
         print("Trabajando...")
-        df_filter['Time']=pd.to_datetime(df['Time'])
+        df_filter['Time']=pd.to_datetime(df['Time'],dayfirst=True)
         #df_ymd['Time']=(df_filter['Time']).apply(lambda x:x[0:9])
         #df_ymd_filter['Time']=pd.to_datetime(df_ymd['Time'])
         #print(df_ymd.head(5))        
         #print(df_ymd_filter.info())
         df_filter.sort_values(by='Time', ascending=True)
-        df_ymd_filter['Time']=df_filter['Time'].dt.strftime('%Y-%m-%d')
+        print(df_filter)
+        df_ymd_filter['Time']=df_filter['Time'].dt.strftime('%Y-%m-%d')#'%Y-%m-%d')
         df_ymd_filter_dt['Time']=pd.to_datetime(df_ymd_filter['Time'])        
         print(df_ymd_filter_dt)
         #df_ymd_filter.sort_values(by='Time', ascending=True)

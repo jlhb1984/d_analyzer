@@ -10,7 +10,7 @@ from imei_phone_filter import Imei_phone_filter
 from chart import Chart
 
 print("data_analyzer.")
-option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Filtered report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos.  \n9. Salir. \n")
+option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Units report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos.  \n9. Salir. \n")
 
 while option!='9':
     
@@ -67,4 +67,4 @@ while option!='9':
         print("Saliendo")
         break
     
-    option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Filtered report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos. \n9. Salir. \n")
+    option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Units report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos. \n9. Salir. \n")

@@ -24,7 +24,7 @@ class Data_info:
         print(df_value_counts)
         exp_option=input("Desea generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
-            Units_report.create_csv(df_value_counts) 
+            Units_report.create_csv(df_value_counts,'Date_ordered') 
         #unique_elements, counts = np.unique(df_table_info, return_counts=True)
         #print("Unique elements: ",unique_elements)
         #print("Totales: ",counts)
