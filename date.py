@@ -17,7 +17,7 @@ class Date():
         df_filter=df[['Time']]
         #df_ymd_filter=df_ymd[['Time']]        
         print("Trabajando...")
-        df_filter['Time']=pd.to_datetime(df['Time'],dayfirst=True)
+        df_filter['Time']=pd.to_datetime(df['Time'])
         #df_ymd['Time']=(df_filter['Time']).apply(lambda x:x[0:9])
         #df_ymd_filter['Time']=pd.to_datetime(df_ymd['Time'])
         #print(df_ymd.head(5))        
@@ -34,5 +34,5 @@ class Date():
         #print("\n")        
         option=input("\nDesea crear un reporte S/N:\n")
         if option=='S':
-            df_filter.to_csv('Date_ordered.csv')
-            df_ymd_filter_dt.to_csv('Date_ordered_ymd.csv')
+            df_filter.to_csv('ymdhms'+table02)
+            df_ymd_filter_dt.to_csv('ymd'+table02)
