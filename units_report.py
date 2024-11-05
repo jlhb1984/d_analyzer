@@ -16,17 +16,20 @@ class Units_report:
         #print(df_book_filter01[var_filter].value_counts())
         #df_book_filter01.dropna(axis=0,inplace=True)        
         exp_option=input("Deseas generar un reporte en formato csv?\nS/N\n")
-        if exp_option=='S':
+        if exp_option=='S':             
              Units_report.create_csv(df_book_filter01,var_filter)
 
         look_option=input("¿Deseas buscar una unidad?\nS/N\n")
         if look_option=='S':
-             Units_report.look_for(df_book_filter01,var_filter,look_option)
+                #Se agregó: df_book_filter01[var_filter]=df_book_filter01[var_filter].astype(str)
+                df_book_filter01[var_filter]=df_book_filter01[var_filter].astype(str)                
+                Units_report.look_for(df_book_filter01,var_filter,look_option)
 
     def look_for(df_book_filter01,var_filter,look_option):        
-        look_word="w"
-        while look_option!='N':
+        look_word="w"        
+        while look_option!='N':                                               
                 look_word=input("Digita la unidad a buscar: ")
+                #look_word_aux=str(look_word)
                 filter_df=df_book_filter01[df_book_filter01[var_filter].str.contains(look_word)]
                 print("Report of units "+look_word+":")
                 print(filter_df)
