@@ -10,7 +10,9 @@ from imei_phone_filter import Imei_phone_filter
 from chart import Chart
 
 print("data_analyzer.")
-option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Units report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos.  \n9. Salir. \n")
+print("\n1. Data_analyzer01.\n2. Units report.\n3. Tables comparator.\n4. Merger.",end="")
+print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos.  \n9. Salir.")
+option=input()
 
 while option!='9':
     
@@ -20,18 +22,16 @@ while option!='9':
         Data_analyzer.data_analysis(number_plate)
 
     elif option=='2':
-        table01=input("\nDigita el nombre de la tabla 1: ")
-        df_book_table01=pd.read_csv(table01)
-        
-        table02=input("\nDigita el nombre de la tabla 2: ")
-        df_book_table02=pd.read_csv(table02)
-
-        Tables_comparator.comparator(df_book_table01,df_book_table02)
-
-    elif option=='3':
         #Carga de la tabla. Customer-Units.csv
         table_name=input("\nDigita el nombre de la tabla: ")
-        Units_report.create_report(table_name)
+        Units_report.create_report(table_name)        
+
+    elif option=='3':
+        table01=input("\nDigita el nombre de la tabla 1 (por lo menos 1 atributo): ")
+        df_book_table01=pd.read_csv(table01)        
+        table02=input("\nDigita el nombre de la tabla 2 (Pasar por opción 2 previamente): ")
+        df_book_table02=pd.read_csv(table02)
+        Tables_comparator.comparator(df_book_table01,df_book_table02)       
 
     elif option=='4':
         #carga de las tablas a fusionar.
@@ -54,8 +54,7 @@ while option!='9':
         graph_option=input("Numero de tablas: \n1./2: ")
         if graph_option=='1':
             data_table=pd.read_csv('Searched_unit_report.csv')
-            Chart.chart_time_1(data_table)            
-
+            Chart.chart_time_1(data_table)
         elif graph_option=='2':
             time=pd.read_csv('Date_ordered.csv')
             print(time.info())
@@ -67,4 +66,6 @@ while option!='9':
         print("Saliendo")
         break
     
-    option=input("\n1. Data_analyzer01.\n2. Tables comparator.\n3. Units report. \n4. Merger. \n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos. \n9. Salir. \n")
+    print("\n1. Data_analyzer01.\n2. Units report.\n3. Tables comparator.\n4. Merger.",end="")
+    print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos.  \n9. Salir.")
+    option=input()    

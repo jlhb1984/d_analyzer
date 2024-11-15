@@ -8,22 +8,43 @@ class Tables_comparator:
              
     def comparator(df_book_table01,df_book_table02):
         num_filas_table01=int(df_book_table01.shape[0])
-        num_filas_table02=int(df_book_table02.shape[0])
-
-        print("Trabajando...")
+        num_filas_table02=int(df_book_table02.shape[0])       
         cont=0
         df_aux=pd.DataFrame()
         lista_simcard=[]
         lista_linea=[]
-                  
+        lista_imei=[]
+        lista_unit_type=[]
+        #print("df_book_table01[8,0]: ",df_book_table01.iloc[8,0]) #UnitsByDealer.csv_r.csv
+        #print("df_book_table02[8,5]: ",df_book_table02.iloc[8,5]) #6MB.        
+        print("\nInformación de las tablas: ")
+        print("\nTabla 1:")
+        print(df_book_table01.info())
+        print("\nTabla 2:")
+        print(df_book_table02.info())
+        attribute_name_table01=input("\nDigita el atributo a comparar de la tabla 1: ")
+        attribute_name_table02=input("Digita el atribito a comparar de la tabla 2: ")
+        position_table01=int(df_book_table01.columns.get_loc(attribute_name_table01))
+        position_table02=int(df_book_table02.columns.get_loc(attribute_name_table02))
+        print("\nAtributo de la tabla1: ",position_table01)
+        print("Atributo de la tabla2: ",position_table02,"\n")
+        print("Trabajando...")
+                          
         for i in range(0,num_filas_table01):
-            for j in range(0,num_filas_table02):                
-                if df_book_table01.iloc[i,0]==df_book_table02.iloc[j,5]:                   
-                    lista_simcard.append(df_book_table02.iloc[j,5])
-                    lista_linea.append(df_book_table02.iloc[j,3])
+            for j in range(0,num_filas_table02):
+                #if str(df_book_table01.iloc[i,5])==str(df_book_table02.iloc[j,3]): 
+                if str(df_book_table01.iloc[i,position_table01])==str(df_book_table02.iloc[j,position_table02]):                                                                             
+                    lista_simcard.append(df_book_table02.iloc[j,3])
+                    lista_linea.append(df_book_table02.iloc[j,2])
+                    lista_imei.append(df_book_table02.iloc[j,4])
+                    lista_unit_type.append(df_book_table02.iloc[j,1])
+                    print("df_book_table01[i,position_table01]: ",df_book_table01.iloc[i,position_table01]," = ",end="")
+                    print("df_book_table02[j,position_table02]: ",df_book_table02.iloc[j,position_table02])               
                     cont=cont+1
         df_aux['SIMCARD']=lista_simcard
         df_aux['LINEA']=lista_linea
+        df_aux['IMEI']=lista_imei
+        df_aux['UNIT TYPE']=lista_unit_type
         print("Cont= ",cont)
         print(df_aux.info())
         option_exp=input("\n¿Desea generar un reporte en formato csv S/N?\n")

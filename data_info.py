@@ -14,6 +14,8 @@ class Data_info:
         print(missing_data_count)
         print("\nInformacíón de la tabla: ")
         print(df_table_info.info())
+        print("\nInformacíón estadística de la tabla: ")
+        print(df_table_info.describe())
         total_rows=len(df_table_info)
         print("\nTotal de registros: ")
         print(total_rows)
