@@ -11,10 +11,10 @@ class Tables_comparator:
         num_filas_table02=int(df_book_table02.shape[0])       
         cont=0
         df_aux=pd.DataFrame()
-        lista_simcard=[]
-        lista_linea=[]
-        lista_imei=[]
-        lista_unit_type=[]
+        list_field01=[]
+        list_field02=[]
+        list_field03=[]
+        list_field04=[]
         #print("df_book_table01[8,0]: ",df_book_table01.iloc[8,0]) #UnitsByDealer.csv_r.csv
         #print("df_book_table02[8,5]: ",df_book_table02.iloc[8,5]) #6MB.        
         print("\nInformación de las tablas: ")
@@ -34,17 +34,17 @@ class Tables_comparator:
             for j in range(0,num_filas_table02):
                 #if str(df_book_table01.iloc[i,5])==str(df_book_table02.iloc[j,3]): 
                 if str(df_book_table01.iloc[i,position_table01])==str(df_book_table02.iloc[j,position_table02]):                                                                             
-                    lista_simcard.append(df_book_table02.iloc[j,3])
-                    lista_linea.append(df_book_table02.iloc[j,2])
-                    lista_imei.append(df_book_table02.iloc[j,4])
-                    lista_unit_type.append(df_book_table02.iloc[j,1])
+                    list_field01.append(df_book_table02.iloc[j,3])
+                    list_field02.append(df_book_table02.iloc[j,2])
+                    list_field03.append(df_book_table02.iloc[j,4])
+                    list_field04.append(df_book_table02.iloc[j,1])
                     print("df_book_table01[i,position_table01]: ",df_book_table01.iloc[i,position_table01]," = ",end="")
                     print("df_book_table02[j,position_table02]: ",df_book_table02.iloc[j,position_table02])               
                     cont=cont+1
-        df_aux['SIMCARD']=lista_simcard
-        df_aux['LINEA']=lista_linea
-        df_aux['IMEI']=lista_imei
-        df_aux['UNIT TYPE']=lista_unit_type
+        df_aux['FIELD01']=list_field01
+        df_aux['FIELD02']=list_field02
+        df_aux['FIELD03']=list_field03
+        df_aux['FIELD04']=list_field04
         print("Cont= ",cont)
         print(df_aux.info())
         option_exp=input("\n¿Desea generar un reporte en formato csv S/N?\n")

@@ -10,9 +10,9 @@ class Units_report:
         df_books.info()
         #num_attribute=int(input("Digita el número de atributos a buscar: "))
         attributes=[]
-        print("\nBuscar 3 atributos de la tabla:")
+        print("\nSelecciona 3 atributos de la tabla:")
         for i in range (0,4):
-             attributes.append(input("\nDigita el atributo a buscar: "))        
+             attributes.append(input("\nDigita el nombre del atributo: "))        
         #En la siguiente línea se puefe agregar los atributos a visualizar, si es uno, no modificar el código.
         #df_book_filter01=df_books[[var_filter]]#,'Unit ID','Unit Type','Phone Number','Sim Number','IMEI','Last Event Date']]
         df_book_filter01=df_books[[attributes[0],attributes[1],attributes[2],attributes[3]]]
