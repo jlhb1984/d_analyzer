@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 class Units_report:
+    
     def __init__(self,table_name):
         self.table_name=table_name
 
@@ -10,7 +11,7 @@ class Units_report:
         df_books.info()
         #num_attribute=int(input("Digita el número de atributos a buscar: "))
         attributes=[]
-        print("\nSelecciona 3 atributos de la tabla:")
+        print("\nSelecciona 4 atributos de la tabla:")
         for i in range (0,4):
              attributes.append(input("\nDigita el nombre del atributo: "))        
         #En la siguiente línea se puefe agregar los atributos a visualizar, si es uno, no modificar el código.
