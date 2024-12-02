@@ -10,11 +10,11 @@ class Tables_comparator:
         num_filas_table01=int(df_book_table01.shape[0])
         num_filas_table02=int(df_book_table02.shape[0])       
         cont=0
-        df_aux=pd.DataFrame()
+        df_aux=pd.DataFrame()        
         list_field01=[]
         list_field02=[]
         list_field03=[]
-        list_field04=[]
+        list_field04=[]       
         #print("df_book_table01[8,0]: ",df_book_table01.iloc[8,0]) #UnitsByDealer.csv_r.csv
         #print("df_book_table02[8,5]: ",df_book_table02.iloc[8,5]) #6MB.        
         print("\nInformación de las tablas: ")
@@ -47,9 +47,24 @@ class Tables_comparator:
         df_aux['FIELD04']=list_field04
         print("Cont= ",cont)
         print(df_aux.info())
-        option_exp=input("\n¿Desea generar un reporte en formato csv S/N?\n")
+        option_exp=input("\n¿Desea generar un reporte de coincidencias en formato csv S/N?\n")
         if option_exp=="S":
-            df_aux.to_csv('tables_comparator.csv')
+            df_aux.to_csv('tables_comparator_coincident.csv')
+        cont=0
+        option_exp=input("¿Desea generar un reporte de diferencias en formato csv S/N?\n")        
+        df_book_table02['ACTION']="Keep"
+        if option_exp=="S":
+            print("Trabajando...")
+            for i in range(0,num_filas_table01):
+                for j in range(0,num_filas_table02):
+                    if str(df_book_table01.iloc[i,position_table01])==str(df_book_table02.iloc[j,position_table02]):
+                        df_book_table02.iloc[j,5]=np.nan
+                        print("df_book_table01[i,position_table01]: ",df_book_table01.iloc[i,position_table01]," = ",end="")
+                        print("df_book_table02[j,position_table02]: ",df_book_table02.iloc[j,position_table02])               
+            df_book_table02.dropna(axis=0,inplace=True)
+            #print(df_book_table02)
+            df_book_table02.to_csv("tables_comparator_differences.csv")
+
         #lista_combinada=[lista_simcard,lista_linea]
        
               
