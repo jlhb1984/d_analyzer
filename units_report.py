@@ -13,21 +13,40 @@ class Units_report:
         attributes=[]
         print("\nSelecciona 4 atributos de la tabla:")
         for i in range (0,4):
-             attributes.append(input("\nDigita el nombre del atributo: "))        
+            attributes.append(input("\nDigita el nombre del atributo: "))        
         df_book_filter01=df_books[[attributes[0],attributes[1],attributes[2],attributes[3]]]
-        print(df_book_filter01)               
+        print(df_book_filter01)        
+        null_values=input("Desea hacer tratamiento de datos faltantes?\nS/N\n")
+        if null_values=='S':
+            print("Datos null: ")
+            print(df_book_filter01.isnull())
+            print("Datos na: ")
+            print(df_book_filter01.isna())
+            print("Datos faltantes totales: ")
+            print(df_book_filter01.isnull().sum())            
+            """
+            Pairwise deletion: Al hacer operaciones matemáticas pandas omite los valores faltantes.
+            .mean(skipna=False) para tener en cuenta los valores faltantes.
+            Listwise deletion:
+            how=all, si es requerido eliminar toda la dila si todos los atributos son null.
+            how=any, si es requerido eliminar toda la fila si almenos un atributo es null.
+            Las siguientes instrucciones no funcionaron, quizá porque no está la librería janitor.
+            df_book_filter01.dropna(subset=['Phone Number'],how="any")
+            print("Data_frame tratado (how=any):")
+            print(df_book_filter01.info())
+
+            """            
+            df_book_filter01.dropna(axis=0,inplace=True)
+            print("Data_frame tratado (dropna)")
+            print(df_book_filter01.info())
+            print(df_book_filter01.isnull().sum())
+
+        imput_=input()
+        
         exp_option=input("Deseas generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
-             var_filter='Filtered_report'             
-             Units_report.create_csv(df_book_filter01,var_filter)
-        null_values=input("Desea hacer tratamiento de datos faltantes: ")
-        if null_values=='S':
-             print("Datos null: ")
-             print(df_book_filter01.isnull())
-             print("Datos na: ")
-             print(df_book_filter01.isna())
-             print("Datos faltantes totales: ")
-             print(df_book_filter01.isnull().sum())
+            var_filter='Filtered_report'             
+            Units_report.create_csv(df_book_filter01,var_filter)         
 
         look_option=input("¿Deseas buscar una unidad del atributo?\nS/N\n")
         if look_option=='S':
