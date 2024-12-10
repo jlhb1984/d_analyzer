@@ -20,6 +20,14 @@ class Units_report:
         if exp_option=='S':
              var_filter='Filtered_report'             
              Units_report.create_csv(df_book_filter01,var_filter)
+        null_values=input("Desea hacer tratamiento de datos faltantes: ")
+        if null_values=='S':
+             print("Datos null: ")
+             print(df_book_filter01.isnull())
+             print("Datos na: ")
+             print(df_book_filter01.isna())
+             print("Datos faltantes totales: ")
+             print(df_book_filter01.missing.number_complete())
 
         look_option=input("¿Deseas buscar una unidad del atributo?\nS/N\n")
         if look_option=='S':
