@@ -14,12 +14,8 @@ class Units_report:
         print("\nSelecciona 4 atributos de la tabla:")
         for i in range (0,4):
              attributes.append(input("\nDigita el nombre del atributo: "))        
-        #En la siguiente línea se puefe agregar los atributos a visualizar, si es uno, no modificar el código.
-        #df_book_filter01=df_books[[var_filter]]#,'Unit ID','Unit Type','Phone Number','Sim Number','IMEI','Last Event Date']]
         df_book_filter01=df_books[[attributes[0],attributes[1],attributes[2],attributes[3]]]
-        print(df_book_filter01) 
-        #print(df_book_filter01[var_filter].value_counts())
-        #df_book_filter01.dropna(axis=0,inplace=True)        
+        print(df_book_filter01)               
         exp_option=input("Deseas generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
              var_filter='Filtered_report'             
