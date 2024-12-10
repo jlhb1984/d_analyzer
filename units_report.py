@@ -27,7 +27,7 @@ class Units_report:
              print("Datos na: ")
              print(df_book_filter01.isna())
              print("Datos faltantes totales: ")
-             print(df_book_filter01.missing.number_complete())
+             print(df_book_filter01.isnull().sum())
 
         look_option=input("¿Deseas buscar una unidad del atributo?\nS/N\n")
         if look_option=='S':
