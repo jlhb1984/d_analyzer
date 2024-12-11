@@ -32,9 +32,9 @@ while option!='11':
         pass        
 
     elif option=='3':
-        table01=input("\nDigita el nombre de la tabla 1 (por lo menos 1 atributo): ")
+        table01=input("\nDigita el nombre de la tabla 1 desde reports, (pasar por opción 2 previamente): ")
         df_book_table01=pd.read_csv("./reports/"+table01)        
-        table02=input("\nDigita el nombre de la tabla 2 (Pasar por opción 2 previamente): ")
+        table02=input("\nDigita el nombre de la tabla 2 desde reports, (Pasar por opción 2 previamente): ")
         df_book_table02=pd.read_csv("./reports/"+table02)
         Tables_comparator.comparator(df_book_table01,df_book_table02)
         pass       
@@ -61,7 +61,7 @@ while option!='11':
         pass
 
     elif option=='8':
-        graph_option=input("Numero de tablas: \n1./2: ")
+        graph_option=input("Número de tablas: \n1./2: ")
         if graph_option=='1':
             data_table=pd.read_csv('Searched_unit_report.csv')
             Chart.chart_time_1(data_table)
