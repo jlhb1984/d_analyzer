@@ -49,7 +49,7 @@ class Tables_comparator:
         print(df_aux.info())
         option_exp=input("\n¿Desea generar un reporte de coincidencias en formato csv S/N?\n")
         if option_exp=="S":
-            df_aux.to_csv('tables_comparator_coincident.csv')
+            df_aux.to_csv('./reports/tables_comparator_coincident.csv')
         cont=0
         option_exp=input("¿Desea generar un reporte de diferencias en formato csv S/N?\n")        
         df_book_table02['ACTION']="Keep"
@@ -63,7 +63,7 @@ class Tables_comparator:
                         print("df_book_table02[j,position_table02]: ",df_book_table02.iloc[j,position_table02])               
             df_book_table02.dropna(axis=0,inplace=True)
             #print(df_book_table02)
-            df_book_table02.to_csv("tables_comparator_differences.csv")
+            df_book_table02.to_csv("./reports/tables_comparator_differences.csv")
 
         #lista_combinada=[lista_simcard,lista_linea]
        

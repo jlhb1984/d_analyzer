@@ -33,9 +33,9 @@ while option!='11':
 
     elif option=='3':
         table01=input("\nDigita el nombre de la tabla 1 (por lo menos 1 atributo): ")
-        df_book_table01=pd.read_csv(table01)        
+        df_book_table01=pd.read_csv("./reports/"+table01)        
         table02=input("\nDigita el nombre de la tabla 2 (Pasar por opción 2 previamente): ")
-        df_book_table02=pd.read_csv(table02)
+        df_book_table02=pd.read_csv("./reports/"+table02)
         Tables_comparator.comparator(df_book_table01,df_book_table02)
         pass       
 

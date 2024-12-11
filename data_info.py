@@ -8,7 +8,7 @@ class Data_info:
         self.info_table=table_info
 
     def info(table_info):
-        df_table_info=pd.read_csv(table_info)
+        df_table_info=pd.read_csv("./data"+table_info)
         missing_data_count=df_table_info.isna().sum()
         print("\nDatos nulos: ")
         print(missing_data_count)
