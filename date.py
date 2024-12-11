@@ -5,7 +5,7 @@ class Date():
         self.table02=table02
     
     def order_date(table02):
-        path=table02
+        path="./data/"+table02
         df=pd.read_csv(path)
         df_ymd=pd.DataFrame()
         df_ymd_filter=pd.DataFrame()
@@ -34,5 +34,5 @@ class Date():
         #print("\n")        
         option=input("\nDesea crear un reporte S/N:\n")
         if option=='S':
-            df_filter.to_csv('ymdhms'+table02)
-            df_ymd_filter_dt.to_csv('ymd'+table02)
+            df_filter.to_csv("./reports/ymdhms"+table02)
+            df_ymd_filter_dt.to_csv("./reports/ymd"+table02)
