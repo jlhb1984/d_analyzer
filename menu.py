@@ -13,7 +13,7 @@ import json
 
 print("data_analyzer.")
 print("\n1. Data_analyzer01.\n2. Units report.\n3. Tables comparator.\n4. Merger.",end="")
-print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos. \n9. Joins.")
+print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Charts. \n9. Joins.")
 print("10. json to dataframe.\n11. Salir.")
 option=input()
 
@@ -93,7 +93,7 @@ while option!='11':
         pass
     
     print("\n1. Data_analyzer01.\n2. Units report.\n3. Tables comparator.\n4. Merger.",end="")
-    print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Gráficos. \n9. Joins.")
+    print("\n5. Table_info. \n6. Messages. \n7. Str_date_order. \n8. Charts. \n9. Joins.")
     print("10. json to dataframe.\n11. Salir.")
     option=input()
  

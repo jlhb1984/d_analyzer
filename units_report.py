@@ -7,7 +7,7 @@ class Units_report:
         self.table_name=table_name
 
     def create_report(table_name):
-        df_books=pd.read_csv(table_name)        
+        df_books=pd.read_csv("./data/"+table_name)        
         df_books.info()
         #num_attribute=int(input("Digita el número de atributos a buscar: "))
         attributes=[]
@@ -41,7 +41,7 @@ class Units_report:
             print(df_book_filter01.info())
             print(df_book_filter01.isnull().sum())
 
-        imput_=input()
+        #imput_=input()
         
         exp_option=input("Deseas generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
@@ -69,5 +69,5 @@ class Units_report:
              Units_report.create_csv(filter_df,look_word)
 
     def create_csv(filter_df,look_word):
-        filter_df.to_csv(look_word+'.csv')
+        filter_df.to_csv("./reports/"+look_word+'.csv')
         
