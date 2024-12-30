@@ -8,7 +8,7 @@ class Data_info:
         self.info_table=table_info
 
     def info(table_info):
-        df_table_info=pd.read_csv("./data/"+table_info)
+        df_table_info=pd.read_csv("./reports/"+table_info)
         missing_data_count=df_table_info.isna().sum()
         print("\nDatos nulos: ")
         print(missing_data_count)
@@ -26,7 +26,7 @@ class Data_info:
         print(df_value_counts)
         exp_option=input("Deseas generar un reporte en formato csv?\nS/N\n")
         if exp_option=='S':
-            Units_report.create_csv(df_value_counts,table_info+'_r') 
+            Units_report.create_csv(df_value_counts,'info') 
         #unique_elements, counts = np.unique(df_table_info, return_counts=True)
         #print("Unique elements: ",unique_elements)
         #print("Totales: ",counts)

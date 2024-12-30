@@ -63,7 +63,7 @@ while option!='11':
     elif option=='8':
         graph_option=input("Número de tablas: \n1./2: ")
         if graph_option=='1':
-            data_table=pd.read_csv("./reports/time_events.csv_r.csv")
+            data_table=pd.read_csv("./reports/info.csv")
             Chart.chart_time_1(data_table)
         elif graph_option=='2':
             time=pd.read_csv('Date_ordered.csv')
